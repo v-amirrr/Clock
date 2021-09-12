@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;600;900&display=swap" rel="stylesheet">
+
+    <!-- ! bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- ! google icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 
 <body onload="load()">
@@ -31,6 +37,12 @@
             <li class="btn md-ripples ripples-light ripples">Timer</li>
         </ul>
     </nav>
+
+    <!-- ! dark and light switch button -->
+    <div id="mode-switch" class="btn md-ripples ripples-light ripples">
+        <span class="material-icons">light_mode</span>
+        <!-- <span class="material-icons" id="mode-switch-icon2">mode_night</span> -->
+    </div>
 
     <!-- ! javascript files -->
     <script src="./js/main.js"></script>

@@ -1,10 +1,19 @@
-:root{
+[data-theme="dark"]{
     --background: #000;
     --text: #fff;
     --navbar-border: #222;
     --navbar-border-hover: #555;
     --navbar-item: #111;
     --navbar-item-hover: #222;
+}
+
+[data-theme="light"]{
+    --background: #fff;
+    --text: #000;
+    --navbar-border: #ddd;
+    --navbar-border-hover: #aaa;
+    --navbar-item: #eee;
+    --navbar-item-hover: #ddd;
 }
 
 *{
@@ -26,7 +35,7 @@ body{
     opacity: 0;
     background: var(--background);
     color: var(--text);
-    transition: opacity 1s;
+    transition: all 1s;
     user-select: none;
     font-family: 'Urbanist', sans-serif;
 }
@@ -74,4 +83,28 @@ nav ul li{
 
 nav ul li:hover{
     background: var(--navbar-item-hover);
+}
+
+
+/* ! switch button */
+#mode-switch{
+    position: absolute;
+    margin: 3.5rem 0 0 76rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--navbar-item);
+    padding: 1rem;
+    border-radius: 50%;
+    transition: background .2s;
+}
+
+#mode-switch:hover{
+    background: var(--navbar-item-hover);
+}
+
+#mode-switch span{
+    font-size: 2rem;
+    transition: all .3s;
 }
