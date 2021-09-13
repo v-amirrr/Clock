@@ -5,6 +5,9 @@
     --navbar-border-hover: #555;
     --navbar-item: #111;
     --navbar-item-hover: #222;
+    --title-gradient1: #ffffff11;
+    --title-gradient2: #ffffff22;
+    --title-gradient3: #ffffffaa;
 }
 
 [data-theme="light"]{
@@ -14,6 +17,9 @@
     --navbar-border-hover: #aaa;
     --navbar-item: #eee;
     --navbar-item-hover: #ddd;
+    --title-gradient1: #00000011;
+    --title-gradient2: #00000022;
+    --title-gradient3: #000000aa;
 }
 
 *{
@@ -43,10 +49,22 @@ body{
 
 
 
-#project-name{
+.project-name1, .project-name2{
     display: flex;
     justify-content: center;
+}
+
+.project-name1{
     margin: 2rem 0 0 0;
+}
+
+.project-name2{
+    background: linear-gradient(180deg, var(--title-gradient1) 0%, var(--title-gradient2) 50%, var(--title-gradient3) 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transform: rotate(180deg);
+    transform: rotateX(180deg);
 }
 
 
@@ -57,7 +75,7 @@ nav{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin: 3rem 0 0 0;
+    margin: 1rem 0 0 0;
     border-radius: 25px;
     border: var(--navbar-border) solid 1px;
     border-bottom: none !important;
@@ -120,7 +138,7 @@ nav ul li:hover{
 /* ! clock page */
 #clock-page{
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 8rem;
     text-align: center;
     width: 45rem;
     /* background: crimson; */
