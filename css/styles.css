@@ -50,6 +50,8 @@ body{
 }
 
 
+
+
 /* ! navbar */
 nav{
     position: absolute;
@@ -86,10 +88,13 @@ nav ul li:hover{
 }
 
 
+
+
 /* ! switch button */
 #mode-switch{
     position: absolute;
-    margin: 3.5rem 0 0 76rem;
+    top: 1rem;
+    right: 1rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -107,4 +112,103 @@ nav ul li:hover{
 #mode-switch span{
     font-size: 2rem;
     transition: all .3s;
+}
+
+
+
+
+/* ! clock page */
+#clock-page{
+    margin: auto;
+    margin-top: 10rem;
+    text-align: center;
+    width: 45rem;
+    /* background: crimson; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#clock-switch{
+    width: fit-content;
+    margin: auto;
+    background: var(--navbar-item);
+    border-radius: 20px;
+    display: flex;
+}
+
+#clock-switch hr{
+    width: 1px;
+    height: 3rem;
+    background: var(--navbar-border-hover);
+    color: var(--navbar-border-hover);
+}
+
+#analog-switch, #digital-switch{
+    padding: .8rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#analog-switch{
+    border-radius: 20px 0 0 20px;
+}
+
+#digital-switch{
+    border-radius: 0 20px 20px 0;
+}
+
+#analog:hover, #digital:hover{
+    background: var(--navbar-item-hover);
+}
+
+.switch-select{
+    background: var(--navbar-item-hover);
+}
+
+#clock-switch span{
+    position: relative;
+    left: -.3rem;
+    font-size: 1.5rem;
+}
+
+#digital-clock, #analog-clock{
+    margin: 1rem;
+    background: var(--navbar-item);
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transform: none;
+    transition: all .5s;
+    position: absolute;
+    margin-top: 30rem;
+}
+
+#analog-clock{
+    transform: translateY(5rem);
+    opacity: 0;
+}
+
+
+
+
+/* ! footer */
+footer{
+    position: relative;
+    top: 40rem;
+    width: 100%;
+    padding: 1rem;
+    background: var(--navbar-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
