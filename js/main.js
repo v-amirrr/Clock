@@ -7,8 +7,8 @@ function load() {
 
 
 // ! footer
-const date = new Date();
-document.querySelector("footer").innerHTML = `${date.getFullYear()} &#169; Copyright`;
+const year = new Date();
+document.querySelector("footer").innerHTML = `${year.getFullYear()} &#169; Copyright`;
 
 
 
@@ -80,3 +80,40 @@ digitalSwitch.addEventListener("click", () => {
     digitalClock.style.transform = "translateY(0)";
     digitalClock.style.opacity = 1;
 });
+
+
+
+
+// ! digital clock
+const digitalClockHour = document.querySelector("#digital-clock-hour");
+const digitalClockMinute = document.querySelector("#digital-clock-minute");
+const digitalClockSecond = document.querySelector("#digital-clock-second");
+const digitalClockSession = document.querySelector("#digital-clock-session");
+
+setInterval(() => {
+    let date = new Date();
+
+    let h = date.getHours();
+    let m = date.getMinutes();
+    let s = date.getSeconds();
+    let session = "AM";
+
+    if(h === 0){
+        h = 12;
+    }
+
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+
+    h = (h < 10) ? `0${h}` : h;
+    m = (m < 10) ? `0${m}` : m;
+    s = (s < 10) ? `0${s}` : s;
+    
+    digitalClockHour.innerHTML = h;
+    digitalClockMinute.innerHTML = m;
+    digitalClockSecond.innerHTML = s;
+    digitalClockSession.innerHTML = session;
+
+}, 1000);

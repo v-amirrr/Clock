@@ -111,8 +111,8 @@ nav ul li:hover{
 /* ! switch button */
 #mode-switch{
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -149,6 +149,10 @@ nav ul li:hover{
     flex-direction: column;
 }
 
+
+
+
+/* ! clock switch */
 #clock-switch{
     width: fit-content;
     margin: auto;
@@ -196,19 +200,35 @@ nav ul li:hover{
     font-size: 1.5rem;
 }
 
+
+
+
+/* ! digital clock and analog clock */
 #digital-clock, #analog-clock{
     margin: 1rem;
     background: var(--navbar-item);
-    width: 20rem;
-    height: 20rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 3rem;
     transform: none;
     transition: all .5s;
     position: absolute;
-    margin-top: 30rem;
+    margin-top: 20rem;
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+#digital-clock p{
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#digital-clock-session{
+    margin-left: 1rem;
 }
 
 #analog-clock{
