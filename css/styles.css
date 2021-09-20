@@ -5,12 +5,15 @@
     --navbar-border-hover: #555;
     --navbar-item: #111;
     --navbar-item-hover: #222;
+
     --title-gradient1: #ffffff11;
     --title-gradient2: #ffffff22;
     --title-gradient3: #ffffffaa;
+
+    --analog-clock: #282828;
 }
 
-[data-theme="light"]{
+/* [data-theme="light"]{
     --background: #fff;
     --text: #000;
     --navbar-border: #ddd;
@@ -20,7 +23,7 @@
     --title-gradient1: #00000011;
     --title-gradient2: #00000022;
     --title-gradient3: #000000aa;
-}
+} */
 
 *{
     margin: 0;
@@ -46,6 +49,11 @@ body{
     font-family: 'Urbanist', sans-serif;
 }
 
+@font-face {
+    font-family: "digital-clock-font";
+    src: url("../font/digital-7.ttf");
+}
+
 
 
 
@@ -59,6 +67,8 @@ body{
 }
 
 .project-name2{
+    position: relative;
+    bottom: .9rem;
     background: linear-gradient(180deg, var(--title-gradient1) 0%, var(--title-gradient2) 50%, var(--title-gradient3) 100%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -75,7 +85,6 @@ nav{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin: 1rem 0 0 0;
     border-radius: 25px;
     border: var(--navbar-border) solid 1px;
     border-bottom: none !important;
@@ -129,7 +138,7 @@ nav ul li:hover{
 
 #mode-switch span{
     font-size: 2rem;
-    transition: all .3s;
+    transition: all .2s;
 }
 
 
@@ -219,7 +228,12 @@ nav ul li:hover{
     padding: 2rem;
 }
 
+#digital-clock{
+    font-family: "digital-clock-font";
+}
+
 #digital-clock p{
+    user-select: text;
     width: 3.5rem;
     height: 3.5rem;
     display: flex;
@@ -229,14 +243,137 @@ nav ul li:hover{
 
 #digital-clock-session{
     margin-left: 1rem;
+    font-family: 'Urbanist';
+    font-size: 2.5rem;
 }
 
 #analog-clock{
     transform: translateY(5rem);
     opacity: 0;
+    width: 20rem;
+    height: 20rem;
+    padding: 2rem;
+    margin-top: 28rem;
+    border: 5px solid #282828;
+    border-radius: 50%;
+    background-color: var(--navbar-item);
 }
 
+.outer-clock-face{
+    background-color: var(--navbar-item);
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+}
 
+.outer-clock-face::after,
+.outer-clock-face::before,
+.outer-clock-face .marking{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: #1df52f;
+    z-index: 0;
+    left: 49%;
+}
+
+.outer-clock-face::after{
+    transform: rotate(90deg);
+}
+
+.outer-clock-face .marking{
+    background: #bdbdcb;
+    width: 3px;
+}
+
+.outer-clock-face .marking.marking-one {
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    transform: rotate(30deg)
+}
+  
+.outer-clock-face .marking.marking-two {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    transform: rotate(60deg)
+}
+  
+.outer-clock-face .marking.marking-three {
+    -webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    transform: rotate(120deg)
+}
+  
+.outer-clock-face .marking.marking-four {
+    -webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);
+    transform: rotate(150deg)
+}
+
+.inner-clock-face {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: var(--navbar-item);
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.inner-clock-face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 18px;
+    margin-left: -9px;
+    margin-top: -6px;
+    background: var(--navbar-border-hover);
+}
+
+.hand {
+    width: 50%;
+    right: 50%;
+    height: 6px;
+    background: #61afff;
+    position: absolute;
+    top: 50%;
+    border-radius: 6px;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+  
+.hand.hour-hand {
+    width: 30%;
+    z-index: 3;
+    transition: all .2s;
+}
+  
+.hand.min-hand {
+    height: 3px;
+    z-index: 10;
+    width: 40%;
+    transition: all .2s;
+}
+  
+.hand.second-hand{
+    background: #ee791a;
+    width: 45%;
+    height: 2px;
+    transition: all .2s;
+    z-index: 2;
+}
+  
+  
 
 
 /* ! footer */
@@ -245,8 +382,9 @@ footer{
     top: 40rem;
     width: 100%;
     padding: 1rem;
-    background: var(--navbar-border);
+    background: var(--navbar-border-hover);
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
 }

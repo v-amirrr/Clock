@@ -7,8 +7,8 @@ function load() {
 
 
 // ! footer
-const year = new Date();
-document.querySelector("footer").innerHTML = `${year.getFullYear()} &#169; Copyright`;
+// const year = new Date();
+// document.querySelector("footer").innerHTML = `${year.getFullYear()} &#169; Copyright`;
 
 
 
@@ -26,7 +26,7 @@ modeSwitch.addEventListener("click", () => {
         setTimeout(() => {
             modeSwitchIcon.innerHTML = "mode_night";
             modeSwitchIcon.style.transform = "scale(1)";
-        }, 300);
+        }, 200);
         document.querySelectorAll(".ripples-light").forEach(item => {
             item.classList.replace("ripples-light", "ripples-dark");
         });
@@ -39,7 +39,7 @@ modeSwitch.addEventListener("click", () => {
         setTimeout(() => {
             modeSwitchIcon.innerHTML = "light_mode";
             modeSwitchIcon.style.transform = "scale(1)";
-        }, 300);
+        }, 200);
         document.querySelectorAll(".ripples-dark").forEach(item => {
             item.classList.replace("ripples-dark", "ripples-light");
         });
@@ -117,3 +117,33 @@ setInterval(() => {
     digitalClockSession.innerHTML = session;
 
 }, 1000);
+
+
+
+
+// ! analog clock
+const secondHand = document.querySelector('.second-hand');
+const minsHand = document.querySelector('.min-hand');
+const hourHand = document.querySelector('.hour-hand');
+
+function setDate(){
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    const secondsDegrees = ((seconds / 60) * 360 + 90);
+    secondHand.style.transition = "all .2s";
+    if(secondsDegrees == 90){
+        secondHand.style.transition = "none";
+    }
+    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+    const mins = now.getMinutes();
+    const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
+    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+    const hour = now.getHours();
+    const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
+    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+}
+
+setInterval(setDate, 1000);
