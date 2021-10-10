@@ -1,29 +1,52 @@
 [data-theme="dark"]{
-    --background: #000;
-    --text: #fff;
-    --navbar-border: #222;
-    --navbar-border-hover: #555;
-    --navbar-item: #111;
-    --navbar-item-hover: #222;
+    --body-text: #fff;
+    --body-background: #000; 
 
     --title-gradient1: #ffffff11;
     --title-gradient2: #ffffff22;
     --title-gradient3: #ffffffaa;
 
-    --analog-clock: #282828;
+    --nav-border: #444;
+    --nav-border-hover: #777;
+
+    --background-btn: #151515;
+    --background-btn-hover: #252525;
+    --background-btn-select: #292929;
+
+    --switch-background: #292929;
+    --switch-background-hover: #4b4b4b;
+
+    --clock-switch-hr-background: #aaa;
+
+    --analog-clock-border: #252525;
+    --analog-clock-background: #151515;
+    --analog-clock-face-background: #aaa;
 }
 
-/* [data-theme="light"]{
-    --background: #fff;
-    --text: #000;
-    --navbar-border: #ddd;
-    --navbar-border-hover: #aaa;
-    --navbar-item: #eee;
-    --navbar-item-hover: #ddd;
+[data-theme="light"]{
+    --body-text: #000;
+    --body-background: #fff; 
+
     --title-gradient1: #00000011;
     --title-gradient2: #00000022;
     --title-gradient3: #000000aa;
-} */
+
+    --nav-border: #ccc;
+    --nav-border-hover: #999;
+
+    --background-btn: #f5f5f5;
+    --background-btn-hover: #d5d5d5;
+    --background-btn-select: #d5d5d5;
+
+    --switch-background: #d9d9d9;
+    --switch-background-hover: #cbcbcb;
+
+    --clock-switch-hr-background: #111;
+
+    --analog-clock-border: #d5d5d5;
+    --analog-clock-background: #f5f5f5;
+    --analog-clock-face-background: #111;
+}
 
 *{
     margin: 0;
@@ -32,6 +55,7 @@
     border: none;
     outline: none;
     list-style: none;
+    transition: color .2 !important;
 }
 
 html{
@@ -42,17 +66,17 @@ html{
 
 body{
     opacity: 0;
-    background: var(--background);
-    color: var(--text);
-    transition: all 1s;
+    background: var(--body-background);
+    color: var(--body-text);
+    transition: all .5s;
     user-select: none;
     font-family: 'Urbanist', sans-serif;
 }
 
-@font-face {
+/* @font-face {
     font-family: "digital-clock-font";
     src: url("../font/digital-7.ttf");
-}
+} */
 
 
 
@@ -79,20 +103,21 @@ body{
 
 
 
+
 /* ! navbar */
 nav{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 25px;
-    border: var(--navbar-border) solid 1px;
+    border: var(--nav-border) solid 1px;
     border-bottom: none !important;
     width: fit-content;
     transition: border .5s;
 }
 
 nav:hover{
-    border: var(--navbar-border-hover) solid 1px;
+    border: var(--nav-border-hover) solid 1px;
 }
 
 nav ul{
@@ -101,7 +126,7 @@ nav ul{
 
 nav ul li{
     margin: 1rem;
-    background-color: var(--navbar-item);
+    background-color: var(--background-btn);
     padding: 1rem 2rem;
     border-radius: 20px;
     cursor: pointer;
@@ -114,11 +139,11 @@ nav ul li{
 }
 
 nav ul li:hover{
-    background: var(--navbar-item-hover);
+    background: var(--background-btn-hover);
 }
 
 .select{
-    background: var(--navbar-item-hover);
+    background: var(--background-btn-hover);
 }
 
 
@@ -133,14 +158,14 @@ nav ul li:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--navbar-item);
+    background: var(--switch-background);
     padding: 1rem;
     border-radius: 50%;
     transition: background .2s;
 }
 
 #mode-switch:hover{
-    background: var(--navbar-item-hover);
+    background: var(--switch-background-hover);
 }
 
 #mode-switch span{
@@ -157,7 +182,6 @@ nav ul li:hover{
     margin-top: 8rem;
     text-align: center;
     width: 45rem;
-    /* background: crimson; */
     position: relative;
     display: flex;
     justify-content: center;
@@ -173,16 +197,16 @@ nav ul li:hover{
 #clock-switch{
     width: fit-content;
     margin: auto;
-    background: var(--navbar-item);
+    background: var(--background-btn);
     border-radius: 20px;
     display: flex;
 }
 
 #clock-switch hr{
-    width: 1px;
+    width: 2px;
     height: 3rem;
-    background: var(--navbar-border-hover);
-    color: var(--navbar-border-hover);
+    background: var(--clock-switch-hr-background);
+    color: var(--clock-switch-hr-background);
 }
 
 #analog-switch, #digital-switch{
@@ -203,12 +227,8 @@ nav ul li:hover{
     border-radius: 0 20px 20px 0;
 }
 
-#analog:hover, #digital:hover{
-    background: var(--navbar-item-hover);
-}
-
 .switch-select{
-    background: var(--navbar-item-hover);
+    background: var(--background-btn-hover);
 }
 
 #clock-switch span{
@@ -223,11 +243,11 @@ nav ul li:hover{
 /* ! digital clock and analog clock */
 #digital-clock, #analog-clock{
     margin: 1rem;
-    background: var(--navbar-item);
+    background: var(--background-btn);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     transform: none;
     transition: all .5s;
     position: absolute;
@@ -237,7 +257,7 @@ nav ul li:hover{
 }
 
 #digital-clock{
-    font-family: "digital-clock-font";
+    font-family: sans-serif;
 }
 
 #digital-clock p{
@@ -260,13 +280,13 @@ nav ul li:hover{
     height: 20rem;
     padding: 2rem;
     margin-top: 30rem;
-    border: 5px solid #282828;
+    border: 5px solid var(--analog-clock-border);
     border-radius: 50%;
-    background-color: var(--navbar-item);
+    background-color: var(--analog-clock-background);
 }
 
 .outer-clock-face{
-    background-color: var(--navbar-item);
+    background-color: var(--analog-clock-background);
     width: 100%;
     height: 100%;
     border-radius: 100%;
@@ -291,7 +311,7 @@ nav ul li:hover{
 }
 
 .outer-clock-face .marking{
-    background: #bdbdcb;
+    background: var(--analog-clock-face-background);
     width: 3px;
 }
 
@@ -325,7 +345,7 @@ nav ul li:hover{
     left: 10%;
     width: 80%;
     height: 80%;
-    background: var(--navbar-item);
+    background: var(--background-btn);
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -342,7 +362,7 @@ nav ul li:hover{
     border-radius: 18px;
     margin-left: -9px;
     margin-top: -6px;
-    background: var(--navbar-border-hover);
+    background: var(--analog-clock-border);
 }
 
 .hand {
@@ -401,12 +421,12 @@ nav ul li:hover{
 }
 
 #stopwatch{
-    background-color: var(--navbar-item);
+    background-color: var(--background-btn);
     border-radius: 25px;
     padding: 2rem;
     display: flex;
     align-items: center;
-    font-family: "digital-clock-font";
+    font-family: sans-serif;
     font-size: 3rem;
     border: solid 2px #ffffff00;
     animation: stopwatch-animation 1s infinite alternate-reverse;
@@ -415,13 +435,13 @@ nav ul li:hover{
 
 @keyframes stopwatch-animation{
     0%{
-        border-top: solid 2px var(--navbar-border-hover);
-        border-bottom: solid 2px var(--navbar-border-hover);
+        border-top: solid 2px var(--nav-border-hover);
+        border-bottom: solid 2px var(--nav-border-hover);
     }
 
     100%{
-        border-right: solid 2px var(--navbar-border-hover);
-        border-left: solid 2px var(--navbar-border-hover);
+        border-right: solid 2px var(--nav-border-hover);
+        border-left: solid 2px var(--nav-border-hover);
     }
 }
 
@@ -445,12 +465,16 @@ nav ul li:hover{
 #stopwatch-btn1, #stopwatch-btn2{
     padding: 1rem;
     font-size: 1.8rem;
-    background-color: var(--navbar-item);
+    background-color: var(--background-btn);
     border-radius: 25px;
     margin: .5rem;
     cursor: pointer;
     transition: all .5s;
     width: 15rem;
+}
+
+#stopwatch-btn1:hover, #stopwatch-btn2:hover{
+    background-color: var(--background-btn-hover);
 }
 
 #stopwatch-btn1 p{
@@ -501,9 +525,9 @@ nav ul li:hover{
     height: 5rem;
     padding: .5rem;
     border-radius: 25px;
-    background-color: var(--navbar-item);
+    background-color: var(--background-btn);
     text-align: center;
-    color: var(--text);
+    color: var(--body-text);
     font-size: 2rem;
 }
 
@@ -520,7 +544,7 @@ nav ul li:hover{
     width: 15rem;
     height: 1.2rem;
     border-radius: 25px;
-    background-color: rgb(66, 66, 66);
+    background-color: var(--background-btn);
     overflow: hidden;
     transition: all .3s;
 }
@@ -528,7 +552,7 @@ nav ul li:hover{
 #timer-line-copy{
     width: 15rem;
     height: 1.5rem;
-    background-color: rgb(175, 175, 175);
+    background-color: var(--background-btn-hover);
     transform: translateX(-15rem);
     transition: all .3s;
 }
@@ -547,12 +571,16 @@ nav ul li:hover{
 #timer-btn1, #timer-btn2{
     padding: 1rem;
     font-size: 1.8rem;
-    background-color: var(--navbar-item);
+    background-color: var(--background-btn);
     border-radius: 25px;
     margin: .5rem;
     cursor: pointer;
     transition: all .5s;
     width: 15rem;
+}
+
+#timer-btn1:hover, #timer-btn2:hover{
+    background-color: var(--background-btn-hover);
 }
 
 #timer-btn1 p{
@@ -591,7 +619,7 @@ nav ul li:hover{
     padding: 1rem;
     font-size: 1.8rem;
     width: 100%;
-    background-color: #222;
+    background-color: var(--background-btn);
     border-radius: 25px 25px 0 0;
     cursor: pointer;
     transition: all .5s;
@@ -599,19 +627,4 @@ nav ul li:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-  
-
-
-/* ! footer */
-footer{
-    position: relative;
-    top: 40rem;
-    width: 100%;
-    padding: 1rem;
-    background: var(--navbar-border-hover);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
 }
