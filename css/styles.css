@@ -152,8 +152,8 @@ nav ul li:hover{
 /* ! switch button */
 #mode-switch{
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 1.4rem;
+    right: 1rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -181,7 +181,7 @@ nav ul li:hover{
     margin: auto;
     margin-top: 8rem;
     text-align: center;
-    width: 45rem;
+    width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -407,7 +407,7 @@ nav ul li:hover{
     margin: auto;
     margin-top: 3rem;
     text-align: center;
-    width: 45rem;
+    width: 50%;
     height: 10rem;
     position: relative;
     display: flex;
@@ -493,7 +493,7 @@ nav ul li:hover{
 #timer-page{
     margin: auto;
     text-align: center;
-    width: 45rem;
+    width: 50%;
     height: 10rem;
     position: relative;
     bottom: 5rem;
