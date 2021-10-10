@@ -94,14 +94,53 @@
         </div>
     </section>
 
-    <!-- ! timer clock -->
+    <!-- ! timer page -->
     <section id="timer-page">
-        Timer Page
-    </section>
+        <div id="timer-input">
+            <div id="hour">
+                <p>Hours</p>
+                <input type="text" value="00">
+            </div>
 
+            <div id="minute">
+                <p>Minutes</p>
+                <input type="text" value="00">
+            </div>
+
+            <div id="second">
+                <p>Seconds</p>
+                <input type="text" value="00">
+            </div>
+        </div>
+
+        <div id="timer-line">
+            <div id="timer-line-original">
+                <div id="timer-line-copy"></div>
+            </div>
+        </div>
+        
+        <div id="timer-buttons">
+            <div id="timer-btn1" class="btn md-ripples ripples-light ripples">
+                <p>Start</p>
+            </div>
+    
+            <div id="timer-btn2" class="btn md-ripples ripples-light ripples">
+                Reset
+            </div>
+        </div>
+
+    </section>
+    
+    <div id="timer-window">
+        <p>Time's Up</p>
+        <div id="timer-window-btn" class="btn md-ripples ripples-light ripples">
+            OK
+        </div>
+    </div>
+    
     <!-- ! footer -->
     <footer></footer>
-
+    
     <!-- ! javascript files -->
     <script src="./js/main.js"></script>
     <script src="./js/ripples.js"></script>
