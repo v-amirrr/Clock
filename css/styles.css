@@ -605,6 +605,7 @@ nav ul li:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: -9;
     transform: scale(0);
 }
@@ -614,13 +615,12 @@ nav ul li:hover{
 }
 
 #timer-window-btn{
-    position: absolute;
-    bottom: 0;
+    width: 10rem;
+    margin: 5rem;
     padding: 1rem;
     font-size: 1.8rem;
-    width: 100%;
     background-color: var(--background-btn);
-    border-radius: 25px 25px 0 0;
+    border-radius: 25px;
     cursor: pointer;
     transition: all .5s;
     z-index: 3;

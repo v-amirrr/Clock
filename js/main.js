@@ -389,7 +389,7 @@ timerBtn1.addEventListener("click", () => {
         }, 500);
 
         startTimer();
-    } else if (!(timerCheck.test(minute.value) && timerCheck.test(second.value) && timerCheck.test(hour.value))){
+    } else if (!(timerCheck.test(minute.value) && timerCheck.test(second.value) && timerCheck.test(hour.value)) || time == 0){
         timerError();
     }
 
